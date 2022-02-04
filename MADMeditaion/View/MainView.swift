@@ -14,14 +14,10 @@ struct MainMenuView: View {
             
             VStack(){
                 HeaderView()
-                
-                ContentView()
-                    .padding(.top, 27)
-                
-                Spacer()
+                    .frame(maxHeight: .infinity, alignment: .top)
                 
                 BottomNavigatonView()
-                    .padding(.bottom, 27)
+                
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -58,77 +54,6 @@ struct HeaderView: View{
             .padding(.horizontal, 25)
         }
 }
-
-struct ContentView: View{
-    @State var miniCards: [MiniCard] = []
-    @State var modelToGet: GetMiniCardModel?
-    
-    @State var bigCards: [BigCardModel] = []
-    @State var modelToGetBigCards: GetBigCardModel?
-        
-    var body: some View{
-        VStack(){
-            Text("С возвращением, Эмиль !")
-                .font(.custom("Alegreya-Medium.ttf", size: 30))
-                .foregroundColor(.white)
-            
-            Text("Каким ты себя ощущаешь сегодня ?")
-                .font(.custom("Alegreya-Medium", size: 22))
-                .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
-                .padding(.top, 12)
-                
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 17){
-                    ForEach(miniCards){ item in
-                        MiniCardView(miniCardModel: item)
-                    }
-                }
-            }
-            .padding(.leading, 25)
-            .onAppear(){
-                Api().getMiniCards { (modelToGet) in
-                    self.modelToGet = modelToGet
-                    self.miniCards = OrderMiniCard(miniCards: modelToGet.data)
-                }
-            }
-            
-            ScrollView(.vertical, showsIndicators: false){
-                VStack(spacing: 26){
-                    ForEach(bigCards, id: \.id){ item in
-                        BigCardView(bigCardModel: item)
-                    }
-                }
-            }
-            .frame(height: 390)
-             .padding(.top, 22)
-             .onAppear(){
-                    Api().getBigCards { ( modelToGetBigCards ) in
-                        self.modelToGetBigCards = modelToGetBigCards
-                        self.bigCards = modelToGetBigCards.data
-                    }
-                }
-            
-        }
-    }
-}
-
-func OrderMiniCard(miniCards: [MiniCard]) -> [MiniCard]{
-    var mutadedMiniCards = miniCards
-    var buff: MiniCard = MiniCard
-    
-    for i in 0...miniCards.count {
-        for j in 0...miniCards.count {
-            if(miniCards[i].position > miniCards[j].position){
-                buff = mutadedMiniCards[i]
-                mutadedMiniCards[i] = mutadedMiniCards[j]
-                mutadedMiniCards[j] = buff
-            }
-        }
-    }
-    
-    return mutadedMiniCards
-}
-
 
 struct MiniCardView: View{
     var miniCardModel: MiniCard
@@ -217,27 +142,36 @@ struct BigCardView: View{
 
 struct BottomNavigatonView: View{
     var body: some View{
-        HStack(spacing: 80){
-            Button(action: {}){
-                Image("Home")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            
-            Button(action: {}){
-                Image("Nav")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            
-            Button(action: {}){
-                Image("Profile")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
+        TabView(){
+            HelloView()
+                .tabItem(){
+                    Image("Home")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                }
+        
+//        HStack(spacing: 80){
+//            Button(action: {}){
+//                Image("Home")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//            }
+//
+//            Button(action: {}){
+//                Image("Nav")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//            }
+//
+//            Button(action: {}){
+//                Image("Profile")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//            }
+//        }
+//        .frame(width: 226.77, height: 30)
         }
-        .frame(width: 226.77, height: 30)
     }
 }
-
     

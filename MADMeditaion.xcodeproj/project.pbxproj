@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F442D6027A2C4260087C555 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F442D5F27A2C4260087C555 /* LoginView.swift */; };
-		3F442D6327A2D6A10087C555 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F442D6227A2D6A10087C555 /* MainMenuView.swift */; };
+		3F442D6327A2D6A10087C555 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F442D6227A2D6A10087C555 /* MainView.swift */; };
 		3F48BB45279AE7C20074F9AD /* MADMeditaionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB44279AE7C20074F9AD /* MADMeditaionApp.swift */; };
 		3F48BB49279AE7C40074F9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F48BB48279AE7C40074F9AD /* Assets.xcassets */; };
 		3F48BB4C279AE7C40074F9AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F48BB4B279AE7C40074F9AD /* Preview Assets.xcassets */; };
@@ -19,12 +19,13 @@
 		3F50D71227AABE3800EE2CDE /* BigCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D71127AABE3800EE2CDE /* BigCardModel.swift */; };
 		3FC0E2BC27A4187400385DCD /* MiniCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */; };
 		3FC0E2C027A4196800385DCD /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0E2BF27A4196800385DCD /* Api.swift */; };
+		9ECC035E27AD498F00BFDC43 /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC035D27AD498F00BFDC43 /* HelloView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F442D5F27A2C4260087C555 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3F442D6127A2C9560087C555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3F442D6227A2D6A10087C555 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		3F442D6227A2D6A10087C555 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F48BB41279AE7C20074F9AD /* MADMeditaion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MADMeditaion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F48BB44279AE7C20074F9AD /* MADMeditaionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADMeditaionApp.swift; sourceTree = "<group>"; };
 		3F48BB48279AE7C40074F9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		3F50D71127AABE3800EE2CDE /* BigCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardModel.swift; sourceTree = "<group>"; };
 		3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCardModel.swift; sourceTree = "<group>"; };
 		3FC0E2BF27A4196800385DCD /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		9ECC035D27AD498F00BFDC43 /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,8 @@
 				3F48BB59279AEC090074F9AD /* OnboardingView.swift */,
 				3F48BB67279AED810074F9AD /* BackgroundView.swift */,
 				3F442D5F27A2C4260087C555 /* LoginView.swift */,
-				3F442D6227A2D6A10087C555 /* MainMenuView.swift */,
+				3F442D6227A2D6A10087C555 /* MainView.swift */,
+				9ECC035D27AD498F00BFDC43 /* HelloView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,7 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC0E2BC27A4187400385DCD /* MiniCardModel.swift in Sources */,
-				3F442D6327A2D6A10087C555 /* MainMenuView.swift in Sources */,
+				3F442D6327A2D6A10087C555 /* MainView.swift in Sources */,
+				9ECC035E27AD498F00BFDC43 /* HelloView.swift in Sources */,
 				3F50D71227AABE3800EE2CDE /* BigCardModel.swift in Sources */,
 				3F496C8E27A927B400FCE95D /* GetCardsRequests.swift in Sources */,
 				3F48BB5A279AEC090074F9AD /* OnboardingView.swift in Sources */,
