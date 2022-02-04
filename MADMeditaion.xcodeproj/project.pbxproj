@@ -15,7 +15,7 @@
 		3F48BB56279AE92E0074F9AD /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB55279AE92E0074F9AD /* SplashView.swift */; };
 		3F48BB5A279AEC090074F9AD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB59279AEC090074F9AD /* OnboardingView.swift */; };
 		3F48BB68279AED810074F9AD /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB67279AED810074F9AD /* BackgroundView.swift */; };
-		3F496C8E27A927B400FCE95D /* GetMiniCardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F496C8D27A927B400FCE95D /* GetMiniCardRequest.swift */; };
+		3F496C8E27A927B400FCE95D /* GetCardsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F496C8D27A927B400FCE95D /* GetCardsRequests.swift */; };
 		3F50D71227AABE3800EE2CDE /* BigCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D71127AABE3800EE2CDE /* BigCardModel.swift */; };
 		3FC0E2BC27A4187400385DCD /* MiniCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */; };
 		3FC0E2C027A4196800385DCD /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0E2BF27A4196800385DCD /* Api.swift */; };
@@ -42,7 +42,7 @@
 		3F48BB65279AECAA0074F9AD /* Alegreya-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Alegreya-MediumItalic.ttf"; path = "../../../../../../../Downloads/Alegreya/Alegreya-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3F48BB66279AECAA0074F9AD /* Alegreya-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Alegreya-ExtraBoldItalic.ttf"; path = "../../../../../../../Downloads/Alegreya/Alegreya-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		3F48BB67279AED810074F9AD /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		3F496C8D27A927B400FCE95D /* GetMiniCardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMiniCardRequest.swift; sourceTree = "<group>"; };
+		3F496C8D27A927B400FCE95D /* GetCardsRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardsRequests.swift; sourceTree = "<group>"; };
 		3F50D71127AABE3800EE2CDE /* BigCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardModel.swift; sourceTree = "<group>"; };
 		3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCardModel.swift; sourceTree = "<group>"; };
 		3FC0E2BF27A4196800385DCD /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */,
-				3F496C8D27A927B400FCE95D /* GetMiniCardRequest.swift */,
+				3F496C8D27A927B400FCE95D /* GetCardsRequests.swift */,
 				3F50D71127AABE3800EE2CDE /* BigCardModel.swift */,
 			);
 			path = Model;
@@ -226,7 +226,7 @@
 				3FC0E2BC27A4187400385DCD /* MiniCardModel.swift in Sources */,
 				3F442D6327A2D6A10087C555 /* MainMenuView.swift in Sources */,
 				3F50D71227AABE3800EE2CDE /* BigCardModel.swift in Sources */,
-				3F496C8E27A927B400FCE95D /* GetMiniCardRequest.swift in Sources */,
+				3F496C8E27A927B400FCE95D /* GetCardsRequests.swift in Sources */,
 				3F48BB5A279AEC090074F9AD /* OnboardingView.swift in Sources */,
 				3F48BB45279AE7C20074F9AD /* MADMeditaionApp.swift in Sources */,
 				3F48BB56279AE92E0074F9AD /* SplashView.swift in Sources */,

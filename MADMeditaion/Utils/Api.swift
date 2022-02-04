@@ -14,5 +14,18 @@ class Api: ObservableObject{
             }
         }.resume()
     }
+    
+    func getBigCards(completion: @escaping (GetBigCardModel) -> ()){
+        guard let url = URL(string: "http://mskko2021.mad.hakta.pro/api/quotes") else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url){ data, _, _ in
+            let data = try! JSONDecoder().decode(GetBigCardModel.self, from: data!)
+            DispatchQueue.main.async {
+                completion(data)
+            }
+        }.resume()
+    }
 }
     

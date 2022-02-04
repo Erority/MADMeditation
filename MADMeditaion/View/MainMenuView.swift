@@ -19,6 +19,9 @@ struct MainMenuView: View {
                     .padding(.top, 27)
                 
                 Spacer()
+                
+                BottomNavigatonView()
+                    .padding(.bottom, 27)
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -59,6 +62,9 @@ struct HeaderView: View{
 struct ContentView: View{
     @State var miniCards: [MiniCard] = []
     @State var modelToGet: GetMiniCardModel?
+    
+    @State var bigCards: [BigCardModel] = []
+    @State var modelToGetBigCards: GetBigCardModel?
         
     var body: some View{
         VStack(){
@@ -82,18 +88,47 @@ struct ContentView: View{
             .onAppear(){
                 Api().getMiniCards { (modelToGet) in
                     self.modelToGet = modelToGet
-                    self.miniCards = modelToGet.data
+                    self.miniCards = OrderMiniCard(miniCards: modelToGet.data)
                 }
             }
             
             ScrollView(.vertical, showsIndicators: false){
-                VStack(){
-                    
+                VStack(spacing: 26){
+                    ForEach(bigCards, id: \.id){ item in
+                        BigCardView(bigCardModel: item)
+                    }
                 }
             }
+            .frame(height: 390)
+             .padding(.top, 22)
+             .onAppear(){
+                    Api().getBigCards { ( modelToGetBigCards ) in
+                        self.modelToGetBigCards = modelToGetBigCards
+                        self.bigCards = modelToGetBigCards.data
+                    }
+                }
+            
         }
     }
 }
+
+func OrderMiniCard(miniCards: [MiniCard]) -> [MiniCard]{
+    var mutadedMiniCards = miniCards
+    var buff: MiniCard = MiniCard
+    
+    for i in 0...miniCards.count {
+        for j in 0...miniCards.count {
+            if(miniCards[i].position > miniCards[j].position){
+                buff = mutadedMiniCards[i]
+                mutadedMiniCards[i] = mutadedMiniCards[j]
+                mutadedMiniCards[j] = buff
+            }
+        }
+    }
+    
+    return mutadedMiniCards
+}
+
 
 struct MiniCardView: View{
     var miniCardModel: MiniCard
@@ -110,7 +145,7 @@ struct MiniCardView: View{
     }
     
     var body: some View{
-        VStack{
+        Button(action: {}){
             ZStack(){
                 Rectangle()
                     .fill(Color(#colorLiteral(red: 0.9118606448, green: 0.921949327, blue: 0.9216032624, alpha: 1)))
@@ -130,6 +165,17 @@ struct MiniCardView: View{
 }
 
 struct BigCardView: View{
+    var bigCardModel: BigCardModel
+    var img: Image
+    
+    init(bigCardModel: BigCardModel){
+        let url = URL(string: bigCardModel.image)!
+        let dataImg = try! Data(contentsOf: url)
+        let uiImg  =  UIImage(data: dataImg)!
+        img = Image(uiImage: uiImg)
+        
+        self.bigCardModel = bigCardModel
+    }
     
     var body: some View{
         ZStack(){
@@ -139,10 +185,10 @@ struct BigCardView: View{
                 .cornerRadius(15)
             
             VStack(alignment: .leading){
-                Text("Заголовок блока")
+                Text(bigCardModel.title)
                     .font(.custom("Alegreya-Medium", size: 25))
                 
-                Text("Кратенькое описание блока с двумя строчками")
+                Text(bigCardModel.description)
                     .font(.custom("Alegreya-Medium", size: 15))
                     .frame(width: 190)
                     .lineLimit(2)
@@ -164,17 +210,34 @@ struct BigCardView: View{
                 
             }
             .frame(maxWidth: 299, alignment: .leading)
-            .background(Image("2844687-removebg-preview 1").frame(maxWidth: .infinity, alignment: .trailing))
+            .background(img.frame(maxWidth: .infinity, alignment: .trailing))
         }
     }
-    
 }
 
-struct BigCardView_Preview: PreviewProvider{
-    static var previews: some View{
-        BigCardView()
+struct BottomNavigatonView: View{
+    var body: some View{
+        HStack(spacing: 80){
+            Button(action: {}){
+                Image("Home")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            
+            Button(action: {}){
+                Image("Nav")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            
+            Button(action: {}){
+                Image("Profile")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+        }
+        .frame(width: 226.77, height: 30)
     }
 }
-
 
     
