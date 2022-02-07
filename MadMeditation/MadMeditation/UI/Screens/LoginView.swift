@@ -2,6 +2,8 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var login: String = ""
+    @State private var password: String = ""
+
     
     var body: some View {
         ZStack(){
@@ -18,7 +20,7 @@ struct LoginView: View {
                     
                     Text("Sign in")
                         .foregroundColor(.white)
-                        .font(.custom("Alegreya-Medium.ttf", size: 30))
+                        .font(.custom("Alegreya-Medium", size: 30))
                         .padding(.top, 21)
                         .padding(.leading, 35)
                     
@@ -34,9 +36,9 @@ struct LoginView: View {
                         .padding(.top, 111)
                     
                     VStack{
-                        TextField("Password", text: $login)
-                            .foregroundColor(.white)
+                        TextField("Password", text: $password)
                             .padding(.horizontal, 33)
+                            .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
                         
                         Divider()
                             .background(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
@@ -45,7 +47,7 @@ struct LoginView: View {
                         .padding(.top, 40)
                 }
                 
-                Button(action: {}){
+                NavigationLink(destination: {MainMenuView()}, label: {
                     ZStack{
                         Rectangle()
                             .fill(Color(#colorLiteral(red: 0.4864761233, green: 0.6036661267, blue: 0.5713724494, alpha: 1)))
@@ -55,16 +57,15 @@ struct LoginView: View {
                         Text("Sign in")
                             .font(.custom("Alegreya-Medium", size: 25))
                             .foregroundColor(.white)
-                    }
-                }
+                }})
                 .padding(.top, 55)
                 
-                VStack(alignment: .leading){
-                    Text("Register")
-                        .font(.custom("Alegreya-Regular.ttf", size: 20))
-                        .foregroundColor(.white)
-                }
-                .padding(.top, 23)
+                Text("Register")
+                    .font(.custom("Alegreya-Regular", size: 20))
+                    .foregroundColor(.white)
+                    .padding(.top, 23)
+                    .frame(maxWidth: .infinity)
+                    .multilineTextAlignment(.leading)
                 
                 Button(action: {}){
                     ZStack{
@@ -109,9 +110,6 @@ struct CustomTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding(10)
-            .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
-            .font(.custom("Alegreya-Regular.ttf", size: 18))
-           
-        
+            .font(.custom("Alegreya-Regular", size: 18))
     }
 }

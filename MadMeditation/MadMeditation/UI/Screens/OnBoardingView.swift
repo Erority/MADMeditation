@@ -20,11 +20,14 @@ struct OnboardingView: View {
                     Image("Logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 191, height: 199)
-                    
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 92)
+                        .padding(.bottom, -10)
+                
                     Text("ПРИВЕТ")
                         .font(Font.custom("Alegreya-Bold", size: 34))
                         .foregroundColor(.white)
+                        .padding(.bottom, -10)
                     
                     Text("Наслаждайся отборочными. \n Будь внимателен.\n Делай хорошо.")
                         .font(Font.custom("Alegreya-Medium", size: 20))
@@ -49,8 +52,9 @@ struct OnboardingView: View {
                         
                         NavigationLink(destination: {}, label: {
                             Text("Еще нет аккаунта? Зарегистрируйтесь")
+                                .font(.custom("Alegreya-Regular", size: 20))
                                 .foregroundColor(.white)})
-                            .padding(.top, 18)
+                            .padding(.top, 10)
                     }
                     .padding(.top, 95)
                 }
