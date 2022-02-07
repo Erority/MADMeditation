@@ -48,7 +48,6 @@ struct HelloView: View{
                     }
                 }
             }
-            .frame(height: 390)
              .padding(.top, 22)
              .onAppear(){
                     Api().getBigCards { ( modelToGetBigCards ) in
@@ -81,5 +80,94 @@ func OrderMiniCard(miniCards: [MiniCard]) -> [MiniCard]{
 struct HelloView_Previews: PreviewProvider {
     static var previews: some View {
         HelloView()
+    }
+}
+
+
+struct MiniCardView: View{
+    var miniCardModel: MiniCard
+    
+    var img: Image
+    var titleText: Text
+    
+    init(miniCardModel: MiniCard){
+        self.miniCardModel = miniCardModel
+        
+        let url = URL(string: miniCardModel.image)!
+        let dataImg = try! Data(contentsOf: url)
+        let uiImg  =  UIImage(data: dataImg)!
+        img = Image(uiImage: uiImg)
+        
+        titleText = Text(miniCardModel.title)
+    }
+    
+    var body: some View{
+        Button(action: {}){
+            ZStack(){
+                Rectangle()
+                    .fill(Color(#colorLiteral(red: 0.9118606448, green: 0.921949327, blue: 0.9216032624, alpha: 1)))
+                    .frame(width: 62, height: 65)
+                    .cornerRadius(20)
+                
+                img
+            }
+            
+            titleText
+                .font(.custom("Alegreya-Regular", size: 12))
+                .foregroundColor(Color.blue)
+        }
+            .frame(width: 63, height: 84)
+            
+    }
+}
+
+struct BigCardView: View{
+    var bigCardModel: BigCardModel
+    var img: Image
+    
+    init(bigCardModel: BigCardModel){
+        let url = URL(string: bigCardModel.image)!
+        let dataImg = try! Data(contentsOf: url)
+        let uiImg  =  UIImage(data: dataImg)!
+        img = Image(uiImage: uiImg)
+        
+        self.bigCardModel = bigCardModel
+    }
+    
+    var body: some View{
+        ZStack(){
+            Rectangle()
+                .fill(Color(#colorLiteral(red: 0.9671772122, green: 0.9526218772, blue: 0.9396399856, alpha: 1)))
+                .frame(width: 339, height: 179)
+                .cornerRadius(15)
+            
+            VStack(alignment: .leading){
+                Text(bigCardModel.title)
+                    .font(.custom("Alegreya-Medium", size: 25))
+                
+                Text(bigCardModel.description)
+                    .font(.custom("Alegreya-Medium", size: 15))
+                    .frame(width: 190)
+                    .lineLimit(2)
+                    .padding(.top, -5)
+                
+                
+                Button(action: {}){
+                    ZStack(){
+                        Rectangle()
+                            .fill(Color(#colorLiteral(red: 0.149310112, green: 0.2054758966, blue: 0.2089295685, alpha: 1)))
+                            .frame(width: 138, height: 39)
+                            .cornerRadius(10)
+                        
+                        Text("подробнее")
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.top, 6)
+                
+            }
+            .frame(maxWidth: 299, alignment: .leading)
+            .background(img.frame(maxWidth: .infinity, alignment: .trailing))
+        }
     }
 }

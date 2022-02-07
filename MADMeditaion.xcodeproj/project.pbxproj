@@ -19,6 +19,9 @@
 		3F50D71227AABE3800EE2CDE /* BigCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D71127AABE3800EE2CDE /* BigCardModel.swift */; };
 		3FC0E2BC27A4187400385DCD /* MiniCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */; };
 		3FC0E2C027A4196800385DCD /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0E2BF27A4196800385DCD /* Api.swift */; };
+		9E56DB2327AD565C0071ABAF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56DB2227AD565C0071ABAF /* TestView.swift */; };
+		9E56DB2627AD5C4B0071ABAF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56DB2527AD5C4B0071ABAF /* MainViewModel.swift */; };
+		9E56DB2827AD620B0071ABAF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56DB2727AD620B0071ABAF /* ProfileView.swift */; };
 		9ECC035E27AD498F00BFDC43 /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC035D27AD498F00BFDC43 /* HelloView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		3F50D71127AABE3800EE2CDE /* BigCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardModel.swift; sourceTree = "<group>"; };
 		3FC0E2BB27A4187400385DCD /* MiniCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCardModel.swift; sourceTree = "<group>"; };
 		3FC0E2BF27A4196800385DCD /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		9E56DB2227AD565C0071ABAF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		9E56DB2527AD5C4B0071ABAF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		9E56DB2727AD620B0071ABAF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9ECC035D27AD498F00BFDC43 /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +89,7 @@
 				3F442D6127A2C9560087C555 /* Info.plist */,
 				3F48BB5C279AEC940074F9AD /* Alegreya */,
 				3F48BB54279AE8510074F9AD /* Model */,
-				3F48BB53279AE83E0074F9AD /* ViewModel */,
+				9E56DB2427AD5BF10071ABAF /* ViewModel */,
 				3F48BB52279AE8380074F9AD /* View */,
 				3F48BB48279AE7C40074F9AD /* Assets.xcassets */,
 				3FC0E2BE27A4194900385DCD /* Utils */,
@@ -110,15 +116,10 @@
 				3F442D5F27A2C4260087C555 /* LoginView.swift */,
 				3F442D6227A2D6A10087C555 /* MainView.swift */,
 				9ECC035D27AD498F00BFDC43 /* HelloView.swift */,
+				9E56DB2227AD565C0071ABAF /* TestView.swift */,
+				9E56DB2727AD620B0071ABAF /* ProfileView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		3F48BB53279AE83E0074F9AD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3F48BB54279AE8510074F9AD /* Model */ = {
@@ -154,6 +155,14 @@
 				3FC0E2BF27A4196800385DCD /* Api.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9E56DB2427AD5BF10071ABAF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E56DB2527AD5C4B0071ABAF /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,16 +235,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E56DB2327AD565C0071ABAF /* TestView.swift in Sources */,
 				3FC0E2BC27A4187400385DCD /* MiniCardModel.swift in Sources */,
 				3F442D6327A2D6A10087C555 /* MainView.swift in Sources */,
 				9ECC035E27AD498F00BFDC43 /* HelloView.swift in Sources */,
 				3F50D71227AABE3800EE2CDE /* BigCardModel.swift in Sources */,
+				9E56DB2627AD5C4B0071ABAF /* MainViewModel.swift in Sources */,
 				3F496C8E27A927B400FCE95D /* GetCardsRequests.swift in Sources */,
 				3F48BB5A279AEC090074F9AD /* OnboardingView.swift in Sources */,
 				3F48BB45279AE7C20074F9AD /* MADMeditaionApp.swift in Sources */,
 				3F48BB56279AE92E0074F9AD /* SplashView.swift in Sources */,
 				3F442D6027A2C4260087C555 /* LoginView.swift in Sources */,
 				3FC0E2C027A4196800385DCD /* Api.swift in Sources */,
+				9E56DB2827AD620B0071ABAF /* ProfileView.swift in Sources */,
 				3F48BB68279AED810074F9AD /* BackgroundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
