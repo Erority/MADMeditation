@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F8C6FB527B25FCD003870D1 /* GetUserDataPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C6FB427B25FCD003870D1 /* GetUserDataPostRequest.swift */; };
 		3FFD8E9027B10B8E00791CED /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD8E8F27B10B8E00791CED /* Api.swift */; };
 		3FFD8E9327B10BB100791CED /* GetMiniCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD8E9227B10BB100791CED /* GetMiniCardModel.swift */; };
 		3FFD8E9527B10C2600791CED /* BigCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD8E9427B10C2600791CED /* BigCardModel.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F8C6FB427B25FCD003870D1 /* GetUserDataPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataPostRequest.swift; sourceTree = "<group>"; };
 		3FFD8E8F27B10B8E00791CED /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		3FFD8E9227B10BB100791CED /* GetMiniCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMiniCardModel.swift; sourceTree = "<group>"; };
 		3FFD8E9427B10C2600791CED /* BigCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardModel.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				3FFD8E9427B10C2600791CED /* BigCardModel.swift */,
 				3FFD8E9627B10C3300791CED /* GetRequests.swift */,
 				9E52BCD927B136E000A1E046 /* PhotoCardModel.swift */,
+				3F8C6FB427B25FCD003870D1 /* GetUserDataPostRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				9E4F2B9927B0E95800F23FB6 /* MadMeditationApp.swift in Sources */,
 				3FFD8E9727B10C3300791CED /* GetRequests.swift in Sources */,
 				9E4F2BCC27B0ECCC00F23FB6 /* Background.swift in Sources */,
+				3F8C6FB527B25FCD003870D1 /* GetUserDataPostRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +591,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,6 +623,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

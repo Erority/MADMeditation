@@ -28,6 +28,27 @@ class Api: ObservableObject{
         }.resume()
     }
     
-   // func autorization(completion: @escaping ()){}
+    func sendPostRequestUserData(model: PostUserDataModel, completion: @escaping (UserData) -> ()) {
+        let parameters = "{\n\"email\": \"" + model.email + "\", \"password\":\"" + model.password + "\"\n}"
+        let postData = parameters.data(using: .utf8)
+        
+        
+        let url = URL(string: "http://mskko2021.mad.hakta.pro/api/user/login")!
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+        request.httpBody = postData
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            let data = try! JSONDecoder.decode(UserData.self, from: data)
+            DispatchQueue.main.async {
+                completion(data)
+            }
+        }.resume()
+    }
 }
     

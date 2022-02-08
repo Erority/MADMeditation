@@ -4,6 +4,7 @@ struct LoginView: View {
     @State private var login: String = ""
     @State private var password: String = ""
 
+    @State private var selection: String? = nil
     
     var body: some View {
         ZStack(){
@@ -52,7 +53,13 @@ struct LoginView: View {
                         .padding(.top, 40)
                 }
                 
-                NavigationLink(destination: {MainMenuView()}, label: {
+                NavigationLink(destination: MainMenuView(), tag: "MainView" , selection: $selection) { EmptyView() }
+                
+                Button(action: {
+                    Api().sendPostRequestUserData(model: PostUserDataModel(email: login, password: password))
+                    
+                    selection = "MainView"
+                }, label: {
                     ZStack{
                         Rectangle()
                             .fill(Color(#colorLiteral(red: 0.4864761233, green: 0.6036661267, blue: 0.5713724494, alpha: 1)))
