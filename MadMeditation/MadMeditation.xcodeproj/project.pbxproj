@@ -34,6 +34,11 @@
 		9E4F2BC827B0E9F400F23FB6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F2BC727B0E9F400F23FB6 /* LoginView.swift */; };
 		9E4F2BCA27B0ECA000F23FB6 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F2BC927B0ECA000F23FB6 /* OnBoardingView.swift */; };
 		9E4F2BCC27B0ECCC00F23FB6 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F2BCB27B0ECCC00F23FB6 /* Background.swift */; };
+		9E52BCDA27B136E000A1E046 /* PhotoCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52BCD927B136E000A1E046 /* PhotoCardModel.swift */; };
+		9E52BCDC27B1576B00A1E046 /* PhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52BCDB27B1576B00A1E046 /* PhotoCard.swift */; };
+		9E52BCDE27B157A000A1E046 /* PhotoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52BCDD27B157A000A1E046 /* PhotoComponent.swift */; };
+		9E52BCE027B1BE5C00A1E046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E52BCDF27B1BE5C00A1E046 /* LaunchScreen.storyboard */; };
+		9E52BCE227B24A4800A1E046 /* PhotoEditComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52BCE127B24A4800A1E046 /* PhotoEditComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,11 @@
 		9E4F2BC727B0E9F400F23FB6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9E4F2BC927B0ECA000F23FB6 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		9E4F2BCB27B0ECCC00F23FB6 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		9E52BCD927B136E000A1E046 /* PhotoCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardModel.swift; sourceTree = "<group>"; };
+		9E52BCDB27B1576B00A1E046 /* PhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCard.swift; sourceTree = "<group>"; };
+		9E52BCDD27B157A000A1E046 /* PhotoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoComponent.swift; sourceTree = "<group>"; };
+		9E52BCDF27B1BE5C00A1E046 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E52BCE127B24A4800A1E046 /* PhotoEditComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +136,7 @@
 				3FFD8E9227B10BB100791CED /* GetMiniCardModel.swift */,
 				3FFD8E9427B10C2600791CED /* BigCardModel.swift */,
 				3FFD8E9627B10C3300791CED /* GetRequests.swift */,
+				9E52BCD927B136E000A1E046 /* PhotoCardModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 			children = (
 				9E4F2BC627B0E9D800F23FB6 /* Components */,
 				9E4F2BC527B0E9D100F23FB6 /* Screens */,
+				9E52BCDF27B1BE5C00A1E046 /* LaunchScreen.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -241,6 +253,9 @@
 			children = (
 				9E4F2BCB27B0ECCC00F23FB6 /* Background.swift */,
 				4B72417027B11DB4004F8E56 /* HelloComponent.swift */,
+				9E52BCDB27B1576B00A1E046 /* PhotoCard.swift */,
+				9E52BCDD27B157A000A1E046 /* PhotoComponent.swift */,
+				9E52BCE127B24A4800A1E046 /* PhotoEditComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -360,6 +375,7 @@
 				4B72416127B117C1004F8E56 /* Alegreya-ExtraBold.ttf in Resources */,
 				4B72416327B117C1004F8E56 /* Alegreya-ExtraBoldItalic.ttf in Resources */,
 				9E4F2B9D27B0E95900F23FB6 /* Assets.xcassets in Resources */,
+				9E52BCE027B1BE5C00A1E046 /* LaunchScreen.storyboard in Resources */,
 				4B72416527B117C1004F8E56 /* Alegreya-BlackItalic.ttf in Resources */,
 				4B72416427B117C1004F8E56 /* Alegreya-Bold.ttf in Resources */,
 			);
@@ -392,8 +408,12 @@
 				3FFD8E9527B10C2600791CED /* BigCardModel.swift in Sources */,
 				4B72417127B11DB4004F8E56 /* HelloComponent.swift in Sources */,
 				9E4F2BC827B0E9F400F23FB6 /* LoginView.swift in Sources */,
+				9E52BCDE27B157A000A1E046 /* PhotoComponent.swift in Sources */,
 				4B72416F27B11D56004F8E56 /* MainViewModel.swift in Sources */,
+				9E52BCDC27B1576B00A1E046 /* PhotoCard.swift in Sources */,
+				9E52BCDA27B136E000A1E046 /* PhotoCardModel.swift in Sources */,
 				9E4F2BCA27B0ECA000F23FB6 /* OnBoardingView.swift in Sources */,
+				9E52BCE227B24A4800A1E046 /* PhotoEditComponent.swift in Sources */,
 				9E4F2B9927B0E95800F23FB6 /* MadMeditationApp.swift in Sources */,
 				3FFD8E9727B10C3300791CED /* GetRequests.swift in Sources */,
 				9E4F2BCC27B0ECCC00F23FB6 /* Background.swift in Sources */,
@@ -564,6 +584,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -594,6 +615,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -27,7 +27,9 @@ struct LoginView: View {
                     VStack{
                         TextField("Login", text: $login)
                             .padding(.horizontal, 33)
+                            .font(.custom("Alegreya-Regular", size: 18))
                             .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
+                            .modifier(PlaceholderStyle(showPlaceHolder: login.isEmpty,placeholder: "Login"))
                         
                         Divider()
                             .background(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
@@ -38,7 +40,10 @@ struct LoginView: View {
                     VStack{
                         TextField("Password", text: $password)
                             .padding(.horizontal, 33)
+                            .font(.custom("Alegreya-Regular", size: 18))
                             .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
+                            .modifier(PlaceholderStyle(showPlaceHolder: password.isEmpty,placeholder: "Password"))
+                        
                         
                         Divider()
                             .background(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
@@ -51,33 +56,41 @@ struct LoginView: View {
                     ZStack{
                         Rectangle()
                             .fill(Color(#colorLiteral(red: 0.4864761233, green: 0.6036661267, blue: 0.5713724494, alpha: 1)))
-                            .frame(width: 321, height: 61)
+                            .frame(height: 61)
                             .cornerRadius(10)
                         
                         Text("Sign in")
                             .font(.custom("Alegreya-Medium", size: 25))
                             .foregroundColor(.white)
-                }})
+                    }
+                    .padding(.horizontal, 27)
+                    
+                })
                 .padding(.top, 55)
                 
-                Text("Register")
-                    .font(.custom("Alegreya-Regular", size: 20))
-                    .foregroundColor(.white)
-                    .padding(.top, 23)
-                    .frame(maxWidth: .infinity)
-                    .multilineTextAlignment(.leading)
-                
+                HStack(){
+                    Text("Register")
+                        .font(.custom("Alegreya-Regular", size: 20))
+                        .foregroundColor(.white)
+                        .padding(.top, 23)
+                    
+                    Spacer()
+                    
+                }
+                .padding(.horizontal, 31)
+                    
                 Button(action: {}){
                     ZStack{
                         Rectangle()
                             .fill(Color(#colorLiteral(red: 0.4864761233, green: 0.6036661267, blue: 0.5713724494, alpha: 1)))
-                            .frame(width: 321, height: 61)
+                            .frame(height: 61)
                             .cornerRadius(10)
                         
                         Text("Профиль")
                             .font(.custom("Alegreya-Medium", size: 25))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, 27)
                 }
                 .padding(.top, 23)
                 
@@ -106,10 +119,21 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-struct CustomTextFieldStyle: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-            .padding(10)
+public struct PlaceholderStyle: ViewModifier {
+    var showPlaceHolder: Bool
+    var placeholder: String
+
+    public func body(content: Content) -> some View {
+        ZStack(alignment: .leading) {
+            if showPlaceHolder {
+                Text(placeholder)
+                    .padding(.horizontal, 33)
+                    .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
+                    .font(.custom("Alegreya-Regular", size: 18))
+            }
+            content
+            .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
             .font(.custom("Alegreya-Regular", size: 18))
+        }
     }
 }
