@@ -10,13 +10,15 @@ import SwiftUI
 struct HelloComponent: View{
     @State var miniCards: [MiniCard] = []
     @State var modelToGet: GetMiniCardModel?
-    
+
     @State var bigCards: [BigCardModel] = []
     @State var modelToGetBigCards: GetBigCardModel?
+    
+    @State var userName: String = getUserNameStr()
         
     var body: some View{
         VStack(){
-            Text("С возвращением, Эмиль !")
+            Text("С возвращением, " + userName + "!")
                 .font(.custom("Alegreya-Medium.ttf", size: 30))
                 .foregroundColor(.white)
             

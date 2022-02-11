@@ -83,11 +83,11 @@ struct HeaderView: View, IUpdateHeaderView{
                 Spacer()
                 
                 if !isProfile{
-                    Image("ProfilePhoto")
+                    getUserPhoto()
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(100)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 36, height: 36)
+                        .cornerRadius(100)
                 }
                 else {
                     Button(action: {}){
@@ -152,4 +152,3 @@ struct BottomNavigatonView: View{
 protocol IUpdateHeaderView {
     func UpdaetHeaderView(option: Int)
 }
-

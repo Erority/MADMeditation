@@ -9,9 +9,16 @@ import SwiftUI
 
 struct PhotoCard: View{
     var model: PhotoCardModel
+    var interfaceToDelete: toDeleteCard
+    
+    @State private var selection: String? = nil
     
     var body: some View{
-        Button(action: {}){
+        NavigationLink(destination: PhotoEditComponent(model: model, interfaceToDelete: self.interfaceToDelete), tag: "EditPhoto" , selection: $selection) { EmptyView() }
+        
+        Button(action: {
+            selection = "EditPhoto"
+        }){
             VStack(){
                 Spacer()
                 HStack(){
@@ -48,17 +55,3 @@ struct LastCard: View {
         .cornerRadius(20)
     }
 }
-
-#if DEBUG
-struct PhotoCardPreview: PreviewProvider{
-    static var previews: some View{
-        VStack{
-        PhotoCard(model: PhotoCardModel(image: Image("12556223_paisagem15"), time: "11:00"))
-        
-        LastCard()
-        }
-        
-    }
-}
-
-#endif

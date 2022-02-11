@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ProfileComponent: View {
-    @State var data: [PhotoCardModel] = []
+struct ProfileComponent: View, toDeleteCard{
+    @State var data: [PhotoCardModel] = fillCollection()
     
     let layout = [
         GridItem(.flexible()),
@@ -19,13 +19,13 @@ struct ProfileComponent: View {
         ZStack(){
             VStack(){
                 
-                Image("ProfilePhoto")
+                getUserPhoto()
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 150, height: 150)
                     .cornerRadius(100)
                 
-                Text("Эмиль")
+                getUserName()
                     .font(.custom("Alegreya-Meduim", size: 35))
                     .foregroundColor(.white)
                 
@@ -33,22 +33,29 @@ struct ProfileComponent: View {
                     LazyVGrid(columns: layout, spacing: 20){
                         ForEach(data){ item in
                             VStack{
-                                PhotoCard(model: item)
+                                PhotoCard(model: item, interfaceToDelete: self)
                             }
                         }
                         
                         LastCard()
                     }
-                }.onAppear{
-                    for _ in 0..<4{
-                        data.append(PhotoCardModel(image: Image("12556223_paisagem15"), time: "11:00"))
-                    }
                 }
                 
-                
+                    
             }
             .padding(.top, 30)
         }
+    }
+    
+    func recalculatePosition() {
+        for i in 0..<data.count{
+            data[i].position = i
+        }
+    }
+    
+    func deleteCardFromEditView(_ index: Int) {
+        self.data.remove(at: index)
+        recalculatePosition()
     }
 }
 
@@ -58,3 +65,18 @@ struct ProfileComponentPreview: PreviewProvider{
             .background(Color.black)
     }
 }
+
+protocol toDeleteCard{
+    func deleteCardFromEditView(_ index: Int)
+}
+
+func fillCollection() -> [PhotoCardModel]{
+    var newData = [PhotoCardModel]()
+    
+    for i in 0..<4{
+        newData.append(PhotoCardModel(image: Image("12556223_paisagem15"), time: "11:00", position: i))
+    }
+    
+    return newData
+}
+

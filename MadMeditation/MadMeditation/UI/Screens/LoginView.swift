@@ -6,6 +6,8 @@ struct LoginView: View {
 
     @State private var selection: String? = nil
     
+    @State private var showingAlert = false
+    
     var body: some View {
         ZStack(){
             Color(#colorLiteral(red: 0.1453521252, green: 0.2015509009, blue: 0.205006659, alpha: 1))
@@ -56,9 +58,13 @@ struct LoginView: View {
                 NavigationLink(destination: MainMenuView(), tag: "MainView" , selection: $selection) { EmptyView() }
                 
                 Button(action: {
-                    Api().sendPostRequestUserData(model: PostUserDataModel(email: login, password: password))
+                    Api().sendPostRequestUserData(model: PostUserDataModel(email: login, password: password)) { data in
+                        saveDataToUserDefaults(userToSave: UserData(id: data.id, email: data.email, nickName:  data.email, avatar: data.avatar  , token: data.token))
+                    }
                     
                     selection = "MainView"
+                    
+                    
                 }, label: {
                     ZStack{
                         Rectangle()
@@ -72,7 +78,10 @@ struct LoginView: View {
                     }
                     .padding(.horizontal, 27)
                     
-                })
+                }).alert("User doesn't exists", isPresented: $showingAlert){
+                    Button("Ok", role: .cancel) {}
+                }
+                
                 .padding(.top, 55)
                 
                 HStack(){
@@ -142,5 +151,18 @@ public struct PlaceholderStyle: ViewModifier {
             .foregroundColor(Color(#colorLiteral(red: 0.7462719083, green: 0.7613148689, blue: 0.7609142661, alpha: 1)))
             .font(.custom("Alegreya-Regular", size: 18))
         }
+    }
+}
+
+
+func saveDataToUserDefaults(userToSave: UserData){
+    do{
+        let user = userToSave
+        let data = try JSONEncoder().encode(user)
+        
+        
+        UserDefaults.standard.set(data ,forKey: "UserData")
+    } catch {
+        print("Unable to Encode")
     }
 }

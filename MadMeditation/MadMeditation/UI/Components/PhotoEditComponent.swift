@@ -8,22 +8,47 @@
 import SwiftUI
 
 struct PhotoEditComponent: View {
-    //var model: PhotoCardModel
+    var model: PhotoCardModel
+    var interfaceToDelete: toDeleteCard
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack(){
-            Image("12556223_paisagem15")
+            
+            Color(#colorLiteral(red: 0.1294401288, green: 0.201962471, blue: 0.2051987648, alpha: 1))
+            
+            model.image?
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
-            VStack(){
+            
+            HStack(spacing: 114){
+                
+                Button(action: {
+                    interfaceToDelete.deleteCardFromEditView(model.position)
+                    
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
+                    
+                    
+                    Text("удалить")
+                        .font(.custom("Alegreya-Medium", size: 20))
+                        .foregroundColor(.white)
+                }
+                
+                Button(action: {}){
+                    
+                    Text("закрыть")
+                        .font(.custom("Alegreya-Medium", size: 20))
+                        .foregroundColor(.white)
+                }
             }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .frame(maxWidth: .infinity)
+            .padding(.bottom, 45)
         }
-    }
-}
-
-struct PhotoEditComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoEditComponent()
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarHidden(true)
     }
 }

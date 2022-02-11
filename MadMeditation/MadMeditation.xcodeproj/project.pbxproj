@@ -26,6 +26,7 @@
 		4B72416C27B11CCD004F8E56 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72416B27B11CCD004F8E56 /* MainMenuView.swift */; };
 		4B72416F27B11D56004F8E56 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72416E27B11D56004F8E56 /* MainViewModel.swift */; };
 		4B72417127B11DB4004F8E56 /* HelloComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72417027B11DB4004F8E56 /* HelloComponent.swift */; };
+		9E37A9DF27B5675000C3C530 /* UserDefaultsMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37A9DE27B5675000C3C530 /* UserDefaultsMethods.swift */; };
 		9E4F2B9927B0E95800F23FB6 /* MadMeditationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F2B9827B0E95800F23FB6 /* MadMeditationApp.swift */; };
 		9E4F2B9D27B0E95900F23FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E4F2B9C27B0E95900F23FB6 /* Assets.xcassets */; };
 		9E4F2BA027B0E95900F23FB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E4F2B9F27B0E95900F23FB6 /* Preview Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		4B72416B27B11CCD004F8E56 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		4B72416E27B11D56004F8E56 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4B72417027B11DB4004F8E56 /* HelloComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloComponent.swift; sourceTree = "<group>"; };
+		9E37A9DE27B5675000C3C530 /* UserDefaultsMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMethods.swift; sourceTree = "<group>"; };
 		9E4F2B9527B0E95800F23FB6 /* MadMeditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadMeditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4F2B9827B0E95800F23FB6 /* MadMeditationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadMeditationApp.swift; sourceTree = "<group>"; };
 		9E4F2B9C27B0E95900F23FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				3FFD8E8F27B10B8E00791CED /* Api.swift */,
+				9E37A9DE27B5675000C3C530 /* UserDefaultsMethods.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			files = (
 				3FFD8E9327B10BB100791CED /* GetMiniCardModel.swift in Sources */,
 				4B72416C27B11CCD004F8E56 /* MainMenuView.swift in Sources */,
+				9E37A9DF27B5675000C3C530 /* UserDefaultsMethods.swift in Sources */,
 				3FFD8E9027B10B8E00791CED /* Api.swift in Sources */,
 				3FFD8E9527B10C2600791CED /* BigCardModel.swift in Sources */,
 				4B72417127B11DB4004F8E56 /* HelloComponent.swift in Sources */,
