@@ -50,7 +50,9 @@ struct OnboardingView: View {
                             }
                         })
                         
-                        NavigationLink(destination: {}, label: {
+                        NavigationLink(destination: {
+                            EmptyCustomView(content: "Тут будет регистрация")
+                        }, label: {
                             Text("Еще нет аккаунта? Зарегистрируйтесь")
                                 .font(.custom("Alegreya-Regular", size: 20))
                                 .foregroundColor(.white)})

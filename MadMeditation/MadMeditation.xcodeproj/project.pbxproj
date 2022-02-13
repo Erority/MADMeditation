@@ -27,6 +27,8 @@
 		4B72416F27B11D56004F8E56 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72416E27B11D56004F8E56 /* MainViewModel.swift */; };
 		4B72417127B11DB4004F8E56 /* HelloComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72417027B11DB4004F8E56 /* HelloComponent.swift */; };
 		9E37A9DF27B5675000C3C530 /* UserDefaultsMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37A9DE27B5675000C3C530 /* UserDefaultsMethods.swift */; };
+		9E37A9E127B6C37100C3C530 /* BottomNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37A9E027B6C37100C3C530 /* BottomNavigationViewModel.swift */; };
+		9E37A9E327B9417900C3C530 /* EmptyCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37A9E227B9417900C3C530 /* EmptyCustomView.swift */; };
 		9E4F2B9927B0E95800F23FB6 /* MadMeditationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F2B9827B0E95800F23FB6 /* MadMeditationApp.swift */; };
 		9E4F2B9D27B0E95900F23FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E4F2B9C27B0E95900F23FB6 /* Assets.xcassets */; };
 		9E4F2BA027B0E95900F23FB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E4F2B9F27B0E95900F23FB6 /* Preview Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		4B72416E27B11D56004F8E56 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4B72417027B11DB4004F8E56 /* HelloComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloComponent.swift; sourceTree = "<group>"; };
 		9E37A9DE27B5675000C3C530 /* UserDefaultsMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMethods.swift; sourceTree = "<group>"; };
+		9E37A9E027B6C37100C3C530 /* BottomNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationViewModel.swift; sourceTree = "<group>"; };
+		9E37A9E227B9417900C3C530 /* EmptyCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCustomView.swift; sourceTree = "<group>"; };
 		9E4F2B9527B0E95800F23FB6 /* MadMeditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadMeditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4F2B9827B0E95800F23FB6 /* MadMeditationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadMeditationApp.swift; sourceTree = "<group>"; };
 		9E4F2B9C27B0E95900F23FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4B72416E27B11D56004F8E56 /* MainViewModel.swift */,
+				9E37A9E027B6C37100C3C530 /* BottomNavigationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				9E52BCDB27B1576B00A1E046 /* PhotoCard.swift */,
 				9E52BCDD27B157A000A1E046 /* PhotoComponent.swift */,
 				9E52BCE127B24A4800A1E046 /* PhotoEditComponent.swift */,
+				9E37A9E227B9417900C3C530 /* EmptyCustomView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -411,12 +417,14 @@
 				3FFD8E9327B10BB100791CED /* GetMiniCardModel.swift in Sources */,
 				4B72416C27B11CCD004F8E56 /* MainMenuView.swift in Sources */,
 				9E37A9DF27B5675000C3C530 /* UserDefaultsMethods.swift in Sources */,
+				9E37A9E327B9417900C3C530 /* EmptyCustomView.swift in Sources */,
 				3FFD8E9027B10B8E00791CED /* Api.swift in Sources */,
 				3FFD8E9527B10C2600791CED /* BigCardModel.swift in Sources */,
 				4B72417127B11DB4004F8E56 /* HelloComponent.swift in Sources */,
 				9E4F2BC827B0E9F400F23FB6 /* LoginView.swift in Sources */,
 				9E52BCDE27B157A000A1E046 /* PhotoComponent.swift in Sources */,
 				4B72416F27B11D56004F8E56 /* MainViewModel.swift in Sources */,
+				9E37A9E127B6C37100C3C530 /* BottomNavigationViewModel.swift in Sources */,
 				9E52BCDC27B1576B00A1E046 /* PhotoCard.swift in Sources */,
 				9E52BCDA27B136E000A1E046 /* PhotoCardModel.swift in Sources */,
 				9E4F2BCA27B0ECA000F23FB6 /* OnBoardingView.swift in Sources */,

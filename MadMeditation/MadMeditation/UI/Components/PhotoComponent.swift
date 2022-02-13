@@ -18,13 +18,13 @@ struct ProfileComponent: View, toDeleteCard{
     var body: some View {
         ZStack(){
             VStack(){
-                
+
                 getUserPhoto()
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 150, height: 150)
                     .cornerRadius(100)
-                
+
                 getUserName()
                     .font(.custom("Alegreya-Meduim", size: 35))
                     .foregroundColor(.white)
@@ -73,9 +73,14 @@ protocol toDeleteCard{
 func fillCollection() -> [PhotoCardModel]{
     var newData = [PhotoCardModel]()
     
-    for i in 0..<4{
-        newData.append(PhotoCardModel(image: Image("12556223_paisagem15"), time: "11:00", position: i))
-    }
+    newData.append(PhotoCardModel(image: Image("12556223_paisagem15"), time: "11:00", position: 1))
+    
+    newData.append(PhotoCardModel(image: Image("Unknown-6"), time: "15:55", position: 2))
+        
+    newData.append(PhotoCardModel(image: Image("sunset-d863fdd4"), time: "19:11", position: 3))
+    
+    newData.append(PhotoCardModel(image: Image("Unknown-7"), time: "11:11", position: 4))
+    
     
     return newData
 }

@@ -7,6 +7,8 @@ struct LoginView: View {
     @State private var selection: String? = nil
     
     @State private var showingAlert = false
+    @State private var showingLoginNull = false
+    @State private var showingPasswordNull = false
     
     var body: some View {
         ZStack(){
@@ -55,14 +57,19 @@ struct LoginView: View {
                         .padding(.top, 40)
                 }
                 
-                NavigationLink(destination: MainMenuView(), tag: "MainView" , selection: $selection) { EmptyView() }
+                NavigationLink(destination: MainMenuView(isProfile: .constant(false)), tag: "MainView" , selection: $selection) { EmptyView() }
                 
                 Button(action: {
-                    Api().sendPostRequestUserData(model: PostUserDataModel(email: login, password: password)) { data in
-                        saveDataToUserDefaults(userToSave: UserData(id: data.id, email: data.email, nickName:  data.email, avatar: data.avatar  , token: data.token))
+                    if !validation() {
+                        return
                     }
                     
-                    selection = "MainView"
+                    Api().sendPostRequestUserData(model: PostUserDataModel(email: login, password: password)) { data in
+                        saveDataToUserDefaults(userToSave: UserData(id: data.id, email: data.email, nickName: data.nickName, avatar: data.avatar, token: data.token))
+                    }
+                    
+                        selection = "MainView"
+                    
                     
                     
                 }, label: {
@@ -78,9 +85,17 @@ struct LoginView: View {
                     }
                     .padding(.horizontal, 27)
                     
-                }).alert("User doesn't exists", isPresented: $showingAlert){
+                })
+                .alert("Login empty", isPresented: $showingLoginNull){
+                        Button("Ok", role: .cancel) {}
+                }
+                .alert("Password empty", isPresented: $showingPasswordNull){
                     Button("Ok", role: .cancel) {}
                 }
+                .alert("User doesn't exists", isPresented: $showingAlert){
+                    Button("Ok", role: .cancel) {}
+                }
+                
                 
                 .padding(.top, 55)
                 
@@ -127,6 +142,18 @@ struct LoginView: View {
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
     }
+    
+    func validation() -> Bool {
+        if login == ""{
+            showingLoginNull = true
+            return false
+        }
+        else if password == ""{
+            showingPasswordNull = true
+            return false
+        }
+        return true
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {
@@ -166,3 +193,5 @@ func saveDataToUserDefaults(userToSave: UserData){
         print("Unable to Encode")
     }
 }
+
+

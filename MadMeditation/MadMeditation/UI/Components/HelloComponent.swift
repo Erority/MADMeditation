@@ -33,6 +33,7 @@ struct HelloComponent: View{
                         MiniCardView(miniCardModel: item)
                     }
                 }
+                .frame(height: 90)
             }
             .padding(.leading, 25)
             .onAppear(){
@@ -79,9 +80,15 @@ func OrderMiniCard(miniCards: [MiniCard]) -> [MiniCard]{
     return mutadedMiniCards
 }
 
-struct HelloView_Previews: PreviewProvider {
-    static var previews: some View {
-        HelloComponent()
+//struct HelloView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HelloComponent()
+//    }
+//}
+
+struct MiniCardView_Previews: PreviewProvider{
+    static var previews: some View{
+        MiniCardView(miniCardModel: MiniCard(id: 2, title: "fdsdsf", position: 1, image: "http://mskko2021.mad.hakta.pro/uploads/feeling/calm%20(4).png"))
     }
 }
 
@@ -104,22 +111,22 @@ struct MiniCardView: View{
     }
     
     var body: some View{
-        Button(action: {}){
-            ZStack(){
-                Rectangle()
-                    .fill(Color(#colorLiteral(red: 0.9118606448, green: 0.921949327, blue: 0.9216032624, alpha: 1)))
-                    .frame(width: 62, height: 65)
-                    .cornerRadius(20)
-                
-                img
+        VStack(){
+            Button(action: {}){
+                ZStack(){
+                    Rectangle()
+                        .fill(Color(#colorLiteral(red: 0.9118606448, green: 0.921949327, blue: 0.9216032624, alpha: 1)))
+                        .frame(width: 62, height: 65)
+                        .cornerRadius(20)
+                    
+                    img
+                }
             }
-            
-            titleText
+            Text(miniCardModel.title)
                 .font(.custom("Alegreya-Regular", size: 12))
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color(#colorLiteral(red: 0.9118606448, green: 0.921949327, blue: 0.9216032624, alpha: 1)))
         }
-            .frame(width: 63, height: 84)
-            
+        .frame(width: 63, height: 84)
     }
 }
 

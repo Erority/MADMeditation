@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    @ObservedObject var viewModel: MainViewModel = MainViewModel()
-    var HeaderViewToI: HeaderView?
     
-    init(){
-        HeaderViewToI = HeaderView(viewModel: viewModel)
-    }
+    @ObservedObject var viewModel: MainViewModel = MainViewModel()
+    
+    @Binding var isProfile: Bool
+    
     
     var body: some View {
         ZStack(){
@@ -21,22 +20,37 @@ struct MainMenuView: View {
             
             VStack(){
                 
-                HeaderView(viewModel: viewModel)
+                HeaderView(isProfile: self.isProfile, viewModelMainModel: viewModel)
                 
                 switch viewModel.currentView{
                 case 0:
                     HelloComponent()
                         .frame(maxHeight: .infinity, alignment: .top)
                         .padding(.top, 27)
-                
+                        .onAppear{
+                            isProfile = false
+                        }
+            
+                case 1:
+                    EmptyCustomView(content: "Тут будет прослушивание")
+                        .onAppear{
+                            isProfile = false
+                        }
+                    
                 case 2:
-                    ProfileComponent()
+                    ProfileComponent().onAppear{
+                        isProfile = true
+                    }
                 default:
                     HelloComponent()
+                        .onAppear{
+                        isProfile = false
+                    }
                 }
                 
                 
-                BottomNavigatonView(viewModel: viewModel, interfaceUpdate: self.HeaderViewToI!)
+                
+                BottomNavigatonView(viewModel: viewModel)
                     .padding(.top, 27)
                     .padding(.bottom, 27)
             }
@@ -46,32 +60,31 @@ struct MainMenuView: View {
     }
 }
 
-struct MainMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMenuView()
-    }
-}
+//struct MainMenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainMenuView(isProfile: .constant(false))
+//    }
+//}
 
-struct HeaderView: View, IUpdateHeaderView{
+struct HeaderView: View{
+    @ObservedObject private var viewModel: BottomNavigationViewModel = BottomNavigationViewModel()
     
-    var viewModel: MainViewModel
-    @State private var isProfile: Bool = false
+    @State var isProfile = false
+    @State private var selection: String?
+    
+    var viewModelMainModel: MainViewModel
     
     
-    func UpdaetHeaderView(option: Int) {
-        switch option {
-        case 0:
-            self.isProfile = false
-        case 1:
-            self.isProfile = true
-        default:
-            self.isProfile = false
-        }
-    }
     
     var body: some View{
             HStack(){
-                Image("Hamburger")
+                NavigationLink(destination: EmptyCustomView(content: "Тут будет меню"), tag: "EmptyMenuView" , selection: $selection) { EmptyView() }
+                
+                Button(action: {
+                    selection = "EmptyMenuView"
+                }){
+                    Image("Hamburger")
+                }
                 
                 Spacer()
                 
@@ -82,18 +95,26 @@ struct HeaderView: View, IUpdateHeaderView{
                 
                 Spacer()
                 
-                if !isProfile{
+                
+                switch viewModelMainModel.currentView{
+                case 2:
+                    NavigationLink(destination: LoginView(), tag: "LoginView" , selection: $selection) { EmptyView() }
+                    
+                    Button(action: {
+                        selection = "LoginView"
+                    }){
+                        Text("exit")
+                            .font(.custom("Alegreya-Meduim", size: 15))
+                            .foregroundColor(.white)
+                    }
+                    
+                default:
                     getUserPhoto()
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 36, height: 36)
                         .cornerRadius(100)
-                }
-                else {
-                    Button(action: {}){
-                        Text("exit")
-                            .font(.custom("Alegreya-Meduim", size: 15))
-                    }
+
                 }
             }
             .padding(.top, 63)
@@ -103,7 +124,7 @@ struct HeaderView: View, IUpdateHeaderView{
 
 struct BottomNavigatonView: View{
     var viewModel: MainViewModel
-    var interfaceUpdate: IUpdateHeaderView
+    
     
     @State private var isActiveUser: Bool = false
     
@@ -112,43 +133,53 @@ struct BottomNavigatonView: View{
         
         HStack(spacing: 80){
             Button(action: {
-                interfaceUpdate.UpdaetHeaderView(option: 0)
+                isActiveUser = false
+                viewModel.currentView = 0
+            }){
+                if !isActiveUser{
+                    Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                } else {
+                    Image("Home")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 25, height: 25)
+                }
+                
+            }
+            
+            Button(action: {
                 isActiveUser = false
                 viewModel.currentView = 1
-                
             }){
-                Image("Logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                Image("Nav")
                     .frame(width: 25, height: 25)
                 
             }
             
             Button(action: {
-                interfaceUpdate.UpdaetHeaderView(option: 0)
-                isActiveUser = false
-                viewModel.currentView = 1
-            }){
-                Image("Nav")
-                
-            }
-            
-            Button(action: {
-                interfaceUpdate.UpdaetHeaderView(option: 1)
                 isActiveUser = true
                 viewModel.currentView = 2}){
                 
                     if isActiveUser {
                         Image("User")
+                            .frame(width: 25, height: 25)
                     }
                     else {
                         Image("Profile")
+                            .frame(width: 25, height: 25)
+                            .aspectRatio(contentMode: .fit)
                     }
             }
         }
     }
 }
 
-protocol IUpdateHeaderView {
-    func UpdaetHeaderView(option: Int)
+struct BottomNav_Previews: PreviewProvider {
+    static var previews: some View {
+        BottomNavigatonView(viewModel: MainViewModel())
+            .background(Color.black)
+    }
 }

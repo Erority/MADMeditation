@@ -37,7 +37,9 @@ struct PhotoEditComponent: View {
                         .foregroundColor(.white)
                 }
                 
-                Button(action: {}){
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
                     
                     Text("закрыть")
                         .font(.custom("Alegreya-Medium", size: 20))
